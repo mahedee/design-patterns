@@ -1,4 +1,9 @@
-﻿// An object to access using singleton instance
+﻿/**
+Creational Design Pattern
+*/
+
+
+// An object to access using singleton instance
 public class Employee
 {
     public int Id { get; set; }
