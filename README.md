@@ -1,5 +1,7 @@
-# Software Design Pattern
-Software design pattern implementation by c#
+##  Application of Software Design Pattern
+
+* Singleton
+* Observer
 
 
 ### References
