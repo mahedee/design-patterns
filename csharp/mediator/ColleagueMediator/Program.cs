@@ -21,11 +21,13 @@ public abstract class Colleague
 }
 
 // Define the concrete colleague classes
+// Both inherits Colleague class so that it can access mediator instance
 public class ConcreteColleague1 : Colleague
 {
     public ConcreteColleague1(IMediator mediator) : base(mediator) { }
     public void Send(string message)
     {
+        // It calles the SendMessage of ConcreteMediator class
         _mediator.SendMessage(message, this);
     }
 
@@ -50,6 +52,7 @@ public class ConcreteColleague2 : Colleague
 }
 
 // Define concrete mediator class
+// Implementation of IMediator
 
 public class ConcreteMediator : IMediator
 {
@@ -66,6 +69,7 @@ public class ConcreteMediator : IMediator
         this.colleague2 = colleague2;
     }
 
+    // Implementation of IMediator method
     public void SendMessage(string message, Colleague colleague)
     {
         if (colleague == colleague1)
@@ -86,9 +90,12 @@ public class Program
     {
 
         var mediator = new ConcreteMediator();
+
+        // send ConcreteMediator instance as mediator 
         var colleague1 = new ConcreteColleague1(mediator);
         var colleague2 = new ConcreteColleague2(mediator);
 
+        // intialize colleague1 and colleague2 in ConcreteMediator class
         mediator.SetColleague1(colleague1);
         mediator.SetColleague2(colleague2);
 
